@@ -1,0 +1,360 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500&display=swap");
+@import "mixins";
+
+body{
+  font-family: "Barlow";
+  font-weight: "normal";
+}
+
+
+.App{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+}
+
+.wrapper {
+  margin: 0 auto;
+  position: relative;
+  max-height: 800px;
+  max-width: 375px;
+  background: #FFFFFF;
+  box-shadow: 0px -16px 40px rgba(0, 0, 0, 0.2);
+}
+.backgdoung-img{
+  z-index: -1;
+}
+
+.content{
+  background-color: #FFFFFF;
+  width: 375px;
+  height: 531px;
+  position: absolute;
+  top: 280px;
+  z-index: 2;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0px -16px 40px rgba(0, 0, 0, 0.2);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+    &__left{
+      margin-left: 20px;
+      padding-top: 18px;
+      font-family: Barlow;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 17px;
+      text-align: center;
+      color: #999999;
+      &-time{
+        margin-left: 3px;
+        padding-left: 3px;
+        border-left: 1px solid #999999;
+      }
+    }
+    &__rigth{
+      width: 154px;
+      height: 48px;
+      background: rgba(13, 159, 234, 0.08);
+      border-radius: 0px 20px 0 20px;
+      text-align: center;
+      &--places{
+        cursor: pointer;
+        margin: 15px;
+        &-text{
+          margin: 8px;
+          font-family: Barlow;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 19px;
+          text-align: center;
+          color: #0DA0EA;
+        }
+      }
+
+    }
+}
+
+.row__first{
+  margin-top: 35px;
+  margin-left: 45px;
+  margin-right: 47px;
+  display: flex;
+  justify-content: space-between;
+    &-weather{
+      margin-top: 7px;
+      img{
+        height: 40px;
+      }
+      &-name{
+        font-family: Barlow;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+        letter-spacing: -0.05em;
+        color: #000000;
+      }
+    }
+    &-number--temperature{
+      font-family: Barlow;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 64px;
+      line-height: 77px;
+      letter-spacing: -0.05em;
+      color: #000000;
+        img{
+          padding-top: 10px;
+          position: absolute;
+          width: 24px;
+          height: 29px;
+        }
+    }
+    &-difference--temperature{
+      align-items:center;
+      &-up{
+        position: relative;
+        font-family: Barlow;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 19px;
+        color: #666666;
+        margin-top: 12px;
+        margin-bottom: 12px;
+        margin-right: 3px;
+        &-celsium{
+          height: 13px;
+          margin-right: 3px;
+        }
+        &-arrow{
+          position: absolute;
+          margin-top: 5px;
+        }
+      }
+      &-down{
+        font-family: Barlow;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 19px;
+        color: #666666;
+      }
+    }
+}
+
+.row__second{
+  margin-top: 46px;
+  margin-left: 0;
+  &-wrapper{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 49px;
+    margin-right: 41px;
+    height: 69px;
+  }
+  &-humidity{
+    width: 37px;
+    @include sec-item
+  }
+  &-pressure{
+    width: 67px;
+    margin-top: 4px;
+    @include sec-item
+  }
+  &-wind{
+    width: 67px;
+    @include sec-item
+  }
+}
+
+.row__third{
+  margin-top: 46px;
+  margin-left: 0;
+  &-wrapper{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 49px;
+    margin-right: 41px;
+    height: 69px;
+  }
+  &-sunrise{
+    width: 37px;
+    @include sec-item
+  }
+  &-sunset{
+    width: 67px;
+    margin-top: 4px;
+    @include sec-item
+  }
+  &-daytime{
+    width: 67px;
+    @include sec-item
+  }
+}
+
+.row__fourth {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 19px;
+  margin-right: 19px;
+  margin-top: 24px;
+  &--card{
+    width: 95px;
+    height: 101px;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &-daytime{
+    margin: 0 ;
+    @include sec-item
+  }
+  }
+
+
+.list{
+  background-color: #FFFFFF;
+  width: 375px;
+  height: 781px;
+  position: absolute;
+  top: 29px;
+  z-index: 2;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0px -16px 40px rgba(0, 0, 0, 0.2);
+    &--overflow{
+      overflow-y: scroll; 
+      height: 675px; 
+    }
+    &--overflow::-webkit-scrollbar {
+      width: 7px;
+      background-color: #f9f9fd;
+    }
+    &--alfabet{
+      margin: 18px 35px 18px ;
+      width: 28px;
+      height: 48px;
+      font-family: Barlow;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 40px;
+      line-height: 48px;
+      letter-spacing: -0.05em;
+      color: #AAAAAA;
+    }
+    &--wrapper{
+      width: 335px;
+      padding-left: -20px;
+      display: flex;
+    }
+    &--delete{
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      height: 27px;
+    }
+    &--delete:hover{
+      background: #da532a;
+      height: 27px;
+    }
+    &--item{
+      display: flex;
+      justify-content: space-between;
+      height: 33px;
+      margin-right: 33px;
+      padding-top: 7px;
+      text-align: center;
+      cursor: pointer;
+      &-city{
+        font-family: Barlow;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: -0.05em;
+        color: #696868;
+      }
+      &-temperature{
+        
+        font-family: Barlow;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 19px;
+        text-align: center;
+        color: #666666;
+      }
+    }
+    &--item:hover{
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+      height: 33px;
+      background: #ECF7FD;
+      border-radius: 4px; 
+      margin-left: -20px;
+      margin-right: 20px;
+      padding-top: 7px;
+      padding-left: 20px;
+      padding-right: 20px;
+      &-city{
+        color: #000000;
+      }
+      &-temperature{
+        font-family: Barlow;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 19px;
+        text-align: right;
+        color: #666666;
+      }   
+    }
+  h3{
+    top: 28px;
+    text-align: center;
+    font-family: Barlow;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #999999;
+  }
+  input{
+    width: 280px;
+    height: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-left: 20px;
+    padding-right: 30px;
+    background: #F3F3F3;
+    border-radius: 4px;
+    font-family: Barlow;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000000;
+    border-color: transparent;
+  }
+  input:focus {
+    outline: none;
+    border-color: rgba(0, 153, 255, 0.918);
+   }
+  img{
+    position: absolute;
+    margin-left: -45px;
+    margin-top: 16px;
+  }
+}
