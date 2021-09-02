@@ -1,15 +1,19 @@
 import React from 'react';
 import { IWeather } from '../interface';
+import { useDispatch, useSelector } from 'react-redux';
+
 
 interface IPropsMetrix {
   idItem: number | undefined;
-  weather: IWeather[];
   toggle: (e: any) => void;
 }
 
 const weekDay = ['Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
-const MetrikCityPage = ({ weather, toggle, idItem = 0 }: IPropsMetrix) => {
+const MetrikCityPage = ({  toggle, idItem = 0 }: IPropsMetrix) => {
+
+  
+  const weather:IWeather[] = useSelector(({weather} : any) => weather.items)
   const icon = weather[0].weather[0].icon;
   const iconUrl = 'http://openweathermap.org/img/w/' + icon + '.png';
   const celsium = (num: number): number => {

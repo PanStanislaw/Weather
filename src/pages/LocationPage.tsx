@@ -1,13 +1,15 @@
 import React from 'react';
 import { IWeather } from '../interface';
+import { useDispatch, useSelector } from 'react-redux';
 
 interface IPropsLocal {
   onSerch: (e: any) => void;
-  weather: IWeather[];
   toggle: (e: any) => void;
 }
 
-const LocationPage = ({ onSerch, weather, toggle }: IPropsLocal) => {
+const LocationPage = ({ onSerch, toggle }: IPropsLocal) => {
+  const weather: IWeather[] = useSelector(({weather} : any) => weather.items)
+
   return (
     <div className="list">
       <h3>Location</h3>
@@ -26,7 +28,7 @@ const LocationPage = ({ onSerch, weather, toggle }: IPropsLocal) => {
                       <sup>o</sup>C
                     </span>
                   </div>
-                  <button className="list--delete" onClick={toggle}>
+                  <button className="list--delete" name={`${el.name}`} onClick={toggle}>
                     Удалить
                   </button>
                 </li>
